@@ -4,6 +4,14 @@ volumes:
   mysql_data:
 
 services:
+  nginx:
+    build:
+      context: ./nginx
+    ports:
+      - 80:80
+    tty: true
+    stdin_open: true
+
   mysql:
     build:
       context: ./mysql
