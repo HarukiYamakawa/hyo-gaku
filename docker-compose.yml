@@ -32,3 +32,14 @@ services:
       - mysql
     tty: true
     stdin_open: true
+
+	next:
+    build:
+      context: ./next
+    command: bash -c "npm run dev"
+    volumes:
+      - ./next:/app
+    ports:
+      - "8000:3000"
+    tty: true
+    stdin_open: true
