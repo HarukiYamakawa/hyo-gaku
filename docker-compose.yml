@@ -33,7 +33,7 @@ services:
     tty: true
     stdin_open: true
 
-	next:
+  next:
     build:
       context: ./next
     command: bash -c "npm run dev"
