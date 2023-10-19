@@ -19,7 +19,7 @@ services:
   rails:
     build:
       context: ./rails
-    command: bash -c "bundle exec puma -C config/puma.rb"
+    command: bash -c "tail -f log/development.log"
     ports:
       - "3000:3000"
     depends_on:
