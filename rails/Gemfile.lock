@@ -66,6 +66,8 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    bootsnap (1.16.0)
+      msgpack (~> 1.2)
     builder (3.2.4)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
@@ -87,6 +89,8 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.5)
     minitest (5.20.0)
+    msgpack (1.7.2)
+    mysql2 (0.5.5)
     net-imap (0.4.1)
       date
       net-protocol
@@ -99,6 +103,8 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.15.4-aarch64-linux)
       racc (~> 1.4)
+    puma (5.6.7)
+      nio4r (~> 2.0)
     racc (1.7.1)
     rack (2.2.8)
     rack-test (2.1.0)
@@ -145,7 +151,14 @@ PLATFORMS
   aarch64-linux
 
 DEPENDENCIES
+  bootsnap
+  mysql2 (~> 0.5)
+  puma (~> 5.0)
   rails (~> 7.0.4)
+  tzinfo-data
+
+RUBY VERSION
+   ruby 3.1.2p20
 
 BUNDLED WITH
    2.4.20
