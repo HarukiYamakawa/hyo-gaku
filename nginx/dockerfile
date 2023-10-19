@@ -4,4 +4,3 @@ RUN apt-get update -qq
 
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY to_puma_server.conf /etc/nginx/conf.d/to_puma_server.conf
-COPY ./contents /var/www/html
