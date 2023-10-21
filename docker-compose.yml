@@ -19,7 +19,7 @@ services:
   rails:
     build:
       context: ./rails
-    command: bash -c "bundle exec puma -C config/puma.rb"
+    command: bash -c "tail -f log/development.log"
     ports:
       - "3000:3000"
     depends_on:
@@ -45,10 +45,10 @@ services:
   next:
     build:
       context: ./next
-    command: bash -c "npm run dev"
     volumes:
       - ./next:/app
     ports:
       - "8000:3000"
+      - "9229:9229"
     tty: true
     stdin_open: true
