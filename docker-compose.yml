@@ -2,16 +2,10 @@ version: '3'
 
 volumes:
   mysql_data:
+  public_page:
+  socket_file:
 
 services:
-  nginx:
-    build:
-      context: ./nginx
-    ports:
-      - 80:80
-    tty: true
-    stdin_open: true
-
   mysql:
     build:
       context: ./mysql
@@ -19,16 +13,42 @@ services:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+    tty: true
+    stdin_open: true
 
   rails:
     build:
       context: ./rails
-    command: bash -c "bundle exec rails s -b '0.0.0.0'"
-    volumes:
-      - ./rails:/myapp
+    command: bash -c "tail -f log/development.log"
     ports:
-      - 3000:3000
+      - "3000:3000"
     depends_on:
       - mysql
+    volumes:
+      - ./rails:/myapp
+      - public_page:/myapp/public
+      - socket_file:/myapp/tmp/sockets
+    tty: true
+    stdin_open: true
+
+  nginx:
+    build:
+      context: ./nginx
+    ports:
+      - "80:80"
+    volumes:
+      - public_page:/myapp/public
+      - socket_file:/myapp/tmp/sockets
+    tty: true
+    stdin_open: true
+
+  next:
+    build:
+      context: ./next
+    volumes:
+      - ./next:/app
+    ports:
+      - "8000:3000"
+      - "9229:9229"
     tty: true
     stdin_open: true
