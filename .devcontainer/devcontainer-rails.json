@@ -1,0 +1,7 @@
+{
+	"name": "Existing Docker Compose",
+	"dockerComposeFile": "../docker-compose.yml",
+	"service": "rails",
+	"workspaceFolder": "/myapp"
+
+}

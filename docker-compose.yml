@@ -45,10 +45,10 @@ services:
   next:
     build:
       context: ./next
-    command: bash -c "npm run dev"
     volumes:
       - ./next:/app
     ports:
       - "8000:3000"
+      - "9229:9229"
     tty: true
     stdin_open: true
