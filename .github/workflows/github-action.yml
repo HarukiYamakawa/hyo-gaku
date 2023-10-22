@@ -8,6 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
+    defaults:
+      run:
+        working-directory: rails
+
     services:
       mysql:
         image: mysql:8.0
@@ -51,6 +55,10 @@ jobs:
   rubocop:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+
+    defaults:
+      run:
+        working-directory: rails
 
     steps:
       - name: Checkout code
