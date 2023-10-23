@@ -1,7 +1,7 @@
 name: Run rspec, rubocop
 
 on:
-  push:
+  pull_request:
 
 jobs:
   rspec:
@@ -92,7 +92,7 @@ jobs:
       - name: Cache dependencies
         uses: actions/setup-node@v3
         with:
-          node-version: 20.0
+          node-version: 20.8.1
           cache: 'npm'
           cache-dependency-path: '**/package-lock.json'
 
@@ -117,7 +117,7 @@ jobs:
       - name: Cache dependencies
         uses: actions/setup-node@v3
         with:
-          node-version: 20.0
+          node-version: 20.8.1
           cache: 'npm'
           cache-dependency-path: '**/package-lock.json'
 
